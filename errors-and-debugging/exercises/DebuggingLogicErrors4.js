@@ -4,6 +4,9 @@
 // Given the values for fuelLevel, crewStatus and computerStatus, should launchReady be true or false?
 // Is the program behaving as expected?
 
+// After checking fuelLevel, crewStatus, and computerStatus, the variable launchReady will be true.
+// Program will run as told. If we want both if-statements to be be true, then program will not run as expected.
+
 let launchReady = false;
 let fuelLevel = 17000;
 let crewStatus = true;
