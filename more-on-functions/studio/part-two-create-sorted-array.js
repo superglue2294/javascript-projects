@@ -20,10 +20,50 @@ function findMinValue(arr){
 
 //Your function here...
 
+let sortNums = (arr) => {
+  let sortedArr = [];
+  let i = 0;
+  let n = arr.length;
+
+  while (i < n) {
+    let min = findMinValue(arr);
+    sortedArr.push(min);
+    arr.splice(arr.indexOf(min), 1);
+    i++;
+  }
+
+  return sortedArr;
+}
+
 /* BONUS MISSION: Refactor your sorting function to use recursion below:
  */
+
+let sortNumsRecursion = (arr) => {
+  let myArr = [];
+
+  if (arr.length === 0) {
+    return myArr;
+  } else {
+    let min = findMinValue(arr);
+    myArr.push(min);
+    arr.splice(arr.indexOf(min), 1);
+    return myArr.concat(sortNumsRecursion(arr));
+  }
+}
 
 //Sample arrays for testing:
 let nums1 = [5, 10, 2, 42];
 let nums2 = [-2, 0, -10, -44, 5, 3, 0, 3];
 let nums3 = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
+
+console.log(sortNums(nums1));
+console.log(sortNums(nums2));
+console.log(sortNums(nums3));
+
+let nums1recursion = [5, 10, 2, 42];
+let nums2recursion = [-2, 0, -10, -44, 5, 3, 0, 3];
+let nums3recursion = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
+
+console.log(sortNumsRecursion(nums1recursion));
+console.log(sortNumsRecursion(nums2recursion));
+console.log(sortNumsRecursion(nums3recursion));

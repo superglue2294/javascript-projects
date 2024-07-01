@@ -35,6 +35,20 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //d). Decide where to best place your function call to gather our new fuel.
 
+let normalFunction = (a) => {
+  if (checkFuel(a) === 'green') {
+    return a - 100001;
+  } else if (checkFuel(a) === 'yellow') {
+    return a - 50001;
+  } else {
+    return a;
+  }
+}
+
+let normalTank = normalFunction(fuelLevel);
+
+console.log(normalTank);
+
 /* Next, liberate some of that glorious cargo.
  */
 
@@ -46,6 +60,24 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //d). Don’t get hasty, matey! Remember to test your function.
 
+let normalBox = (arr) => {
+  let myArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].includes("gold") || arr[i].includes("AE-35 unit")) {
+      myArr.push(arr[i]);
+      arr[i] = 'dirt';
+    }
+  }
+
+  return myArr;
+}
+
+// let meLoot = normalBox(cargoHold);
+
+// console.log(meLoot);
+// console.log(cargoHold);
+
 /* Finally, you need to print a receipt for the accountant. Don’t laugh! That genius knows MATH and saves us more gold than you can imagine.
  */
  
@@ -54,3 +86,10 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //b). Call your anonymous fuel and cargo functions from within irs.
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
+
+let irs = (fuel, cargo) => {
+  let arr = normalBox(cargo);
+  return `Raided ${normalFunction(fuel)} kg of fuel from the tanks, and stole ${arr[0]} and ${arr[1]} from the cargo hold.`;
+}
+
+console.log(irs(fuelLevel, cargoHold));
