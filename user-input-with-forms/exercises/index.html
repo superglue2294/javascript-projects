@@ -9,6 +9,19 @@
   </head>
   <body>
     <!-- TODO: add form here -->
+    <h1>Rocket Simulation</h1>
+    <form action="https://handlers.education.launchcode.org/request-parrot" method="POST">
+      <label>Test Name <input type="text" name="testName" id="testName"/></label>
+      <label>Test Date <input type="date" name="testDate" id="testDate"/></label>
+      <label>Rocket Type <select name="rocketType" id="rocketType"><option value="Brant">Brant</option><option value="Lynx">Lynx</option><option value="Orion">Orion</option><option value="Terrier">Terrior</option></select></label>
+      <label>Number of Rocket Boosters <input type="number" name="boosterCount" id="boosterCount" min="0" max="9"></label>
+      Wind Rating:
+      <label>No Wind<input type="radio" name="windRating" value="0"></label>
+      <label>Mild<input type="radio" name="windRating" value="10"></label>
+      <label>Strong<input type="radio" name="windRating" value="20"></label>
+      <label>Use production grade servers<input type="checkbox" name="crewReady"/></label>
+      <button>Run Simulation</button>
+    </form>
   </body>
   
 </html>
